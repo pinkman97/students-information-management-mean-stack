@@ -1,0 +1,97 @@
+<!-- Title group  -->
+<div class="title-group">
+  <h1 class="mat-h1">Add Student</h1>
+  <mat-divider fxFlex="1 0"></mat-divider>
+</div>
+
+<!-- Form -->
+<div class="inner-wrapper">
+  <form [formGroup]="studentForm" (ngSubmit)="updateStudentForm()" #resetStudentForm="ngForm" novalidate>
+    <!-- Left block -->
+    <mat-card>
+      <div class="controlers-wrapper">
+        <!-- ID -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Student ID" formControlName="id_number">
+          <mat-error *ngIf="handleError('id_number', 'required')">
+            You must provide a<strong>student ID</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Name -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Student name" formControlName="full_name">
+          <mat-error *ngIf="handleError('full_name', 'required')">
+            You must provide a<strong>student name</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Student email" formControlName="email">
+          <mat-error *ngIf="handleError('email', 'required')">
+            You must provide a<strong>student email</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Department -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Student department" formControlName="department">
+          <mat-error *ngIf="handleError('department', 'required')">
+            You must provide a<strong>department name</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Phone -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Student phone" formControlName="phone">
+          <mat-error *ngIf="handleError('phone', 'required')">
+            You must provide a<strong>phone number</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <!-- Right block -->
+    <mat-card>
+      <div class="controlers-wrapper">
+         <!-- Height -->
+         <mat-form-field class="example-full-width">
+          <input matInput placeholder="Student height" formControlName="height">
+          <mat-error *ngIf="handleError('height', 'required')">
+            You must provide a<strong>height of the student</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Date of birth -->
+        <mat-form-field>
+          <input matInput readonly [matDatepicker]="picker" placeholder="Date of birth" formControlName="birth_date"
+            (dateChange)="formatDate($event)">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="handleError('birth_date', 'required')">
+            Date of birth is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Gender -->
+        <div class="misc-bottom-padding">
+          <mat-label>Gender:</mat-label>
+          <mat-radio-group aria-label="Select an option" formControlName="gender">
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </mat-card>
+
+    <!-- Submit & Reset -->
+    <mat-card>
+      <div class="full-wrapper button-wrapper">
+        <div class="button-wrapper">
+          <button mat-flat-button color="warn">Update</button>
+        </div>
+      </div>
+    </mat-card>
+  </form>
+</div>
