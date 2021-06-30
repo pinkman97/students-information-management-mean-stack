@@ -1,8 +1,8 @@
 
 ## How to run the app
 - Run `npm install`
-- run `ng serve --open`
-- start MongoDB from your local development system
-- run `cd backend`
-- run `npm install`
-- run `nodemon` 
+- Run `ng serve --open`
+- Run MongoDB from your local development system
+- Run `cd backend`
+- Run `npm install`
+- Run `nodemon` 
